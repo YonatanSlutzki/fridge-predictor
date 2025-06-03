@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>תחזוקה מונעת - אמקו ים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #e6f0fa;
+            color: #333;
+            direction: rtl;
+        }
+        .hero {
+            background: url('/static/amko_logo.png') no-repeat right center;
+            background-size: contain;
+            background-color: #004F7A;
+            padding: 60px 40px;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-top: 0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+        select, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #fdfdfd;
+        }
+        .submit-btn {
+            background-color: #1E90FF;
+            color: white;
+            font-size: 16px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #0077cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>מטב את ביצועי מערכות הקירור שלך</h1>
+        <p>עבור מתחזוקת שבר רפרסיבית לתחזוקה מונעת פרואקטיבית</p>
+    </div>
+    <div class="content">
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <label>בחר שנה:</label>
+            <select name="target_year" required>
+                <option value="" disabled selected>בחר שנה</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+
+            <label>בחר חודש:</label>
+            <select name="target_month" required>
+                <option value="" disabled selected>בחר חודש</option>
+                <option value="1">ינואר</option>
+                <option value="2">פברואר</option>
+                <option value="3">מרץ</option>
+                <option value="4">אפריל</option>
+                <option value="5">מאי</option>
+                <option value="6">יוני</option>
+                <option value="7">יולי</option>
+                <option value="8">אוגוסט</option>
+                <option value="9">ספטמבר</option>
+                <option value="10">אוקטובר</option>
+                <option value="11">נובמבר</option>
+                <option value="12">דצמבר</option>
+            </select>
+
+            <label>קובץ תקלות:</label>
+            <input type="file" name="service_file" required>
+
+            <label>קובץ כיולים:</label>
+            <input type="file" name="calibration_file" required>
+
+            <label>קובץ מקררים:</label>
+            <input type="file" name="fridge_file" required>
+
+            <button type="submit" class="submit-btn">נתח נתונים</button>
+        </form>
+    </div>
+</body>
+</html>
